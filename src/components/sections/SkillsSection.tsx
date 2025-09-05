@@ -4,12 +4,8 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
-    Palette,
     Monitor,
     Users,
-    Globe,
-    Lightbulb,
-    MessageCircle,
     Languages
 } from 'lucide-react';
 

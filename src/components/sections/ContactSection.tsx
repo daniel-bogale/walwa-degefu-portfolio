@@ -67,15 +67,14 @@ export function ContactSection() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                        Let's Work Together
+                        Let&apos;s Work Together
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Ready to bring your creative vision to life? Let's discuss your next project.
+                        Ready to bring your creative vision to life? Let&apos;s discuss your next project.
                     </p>
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Contact Information */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -88,9 +87,9 @@ export function ContactSection() {
                                 Get In Touch
                             </h3>
                             <p className="text-muted-foreground leading-relaxed mb-8">
-                                I'm always excited to work on new projects and collaborate with creative minds.
+                                I&apos;m always excited to work on new projects and collaborate with creative minds.
                                 Whether you need a complete brand identity, web design, or marketing materials,
-                                I'm here to help bring your vision to life.
+                                I&apos;m here to help bring your vision to life.
                             </p>
                         </div>
 
