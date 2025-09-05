@@ -28,14 +28,6 @@ export function Footer() {
                     <p className="text-sm text-muted-foreground">
                         © 2024 Waluwa Degefu. All rights reserved.
                     </p>
-
-                    <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
-                        <span>Graphics Designer</span>
-                        <span>•</span>
-                        <span>UI/UX Designer</span>
-                        <span>•</span>
-                        <span>Creative Professional</span>
-                    </div>
                 </motion.div>
             </div>
         </footer>

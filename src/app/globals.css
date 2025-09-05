@@ -140,4 +140,94 @@
   .scroll-smooth {
     scroll-behavior: smooth;
   }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Customize WebKit browsers (Chrome, Safari) */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+    /* Set a thin width */
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+    /* Transparent track for cleaner look */
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+    /* Style the thumb, make it rounded */
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+    /* Change thumb color on hover */
+  }
+
+  /* Remove arrows by targeting the button pseudo-element */
+  .custom-scrollbar::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Customize Firefox */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+  }
+
+  /* Firefox dark mode */
+  .dark .custom-scrollbar {
+    scrollbar-color: #4b5563 transparent;
+  }
+}
+
+/* Global scrollbar styling for all elements */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+.dark * {
+  scrollbar-color: #4b5563 transparent;
+}
+
+/* WebKit global scrollbar styling */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+
+.dark *::-webkit-scrollbar-thumb {
+  background-color: #4b5563;
+}
+
+.dark *::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280;
+}
+
+/* Remove arrows globally */
+*::-webkit-scrollbar-button {
+  display: none;
 }

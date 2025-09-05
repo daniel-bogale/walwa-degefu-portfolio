@@ -12,43 +12,80 @@ const projects = [
         id: 1,
         title: 'Temari Share',
         description: 'A free hub for ready-made projects, assignments, and thesis ideas.',
-        category: 'Web Design',
-        thumbnail: '/projects/temari-share-thumb.jpg',
+        category: 'Brand Design',
+        thumbnail: '/projects/temari-share/TS_logo_main.png',
         images: [
-            '/projects/temari-share-1.jpg',
-            '/projects/temari-share-2.jpg',
-            '/projects/temari-share-3.jpg'
+            '/projects/temari-share/__________.png',
+            '/projects/temari-share/APP_ICON_pg7.png',
+            '/projects/temari-share/cover page_behance_test.png',
+            '/projects/temari-share/horizontal logo_corect.png',
+            '/projects/temari-share/horizontal logo.png',
+            '/projects/temari-share/logo_in black_background_pg2.png',
+            '/projects/temari-share/logo_in white_background_pg9.png',
+            '/projects/temari-share/logo_lineup_pg 13.png',
+            '/projects/temari-share/press_conference_backdrop_logo_placement wooooo.png',
+            '/projects/temari-share/social media_post_screen_Mockup.png',
+            '/projects/temari-share/TS_logo_darkbg_pg6.png',
+            '/projects/temari-share/TS_logo_main.png',
+            '/projects/temari-share/TS_logo_skach_pg2.png',
+            '/projects/temari-share/TS_logo_whitbg_1pg.png',
+            '/projects/temari-share/TS_Mocku up_dark_final2 pg.png',
+            '/projects/temari-share/TS_mockup_2_last pg.png',
+            '/projects/temari-share/TS_Mockup.png',
+            '/projects/temari-share/TS_note book design.png',
+            '/projects/temari-share/TS_notebook_Mockup_finall.png',
+            '/projects/temari-share/TS_post 1 whitebg_pg8.png',
+            '/projects/temari-share/TS_typeface_pg4.png',
+            '/projects/temari-share/TS_Wall Logo Mockup.png',
+            '/projects/temari-share/TS_webe_mock up.png',
+            '/projects/temari-share/TS-color palet_pg17.png',
+            '/projects/temari-share/Untitled-1.png',
+            '/projects/temari-share/vertical_logo_perestation_add_19.png'
         ],
-        technologies: ['Figma', 'WordPress', 'UI/UX Design'],
-        link: '#'
+        technologies: ['Figma', 'Full Branding', 'UI/UX Design'],
+        // link: '#'
     },
     {
         id: 2,
         title: 'M2M',
         description: 'A motivational content channel on YouTube and social media.',
         category: 'Brand Design',
-        thumbnail: '/projects/m2m-thumb.jpg',
+        thumbnail: '/projects/m2m/m2m_presntation_pg1.png',
         images: [
-            '/projects/m2m-1.jpg',
-            '/projects/m2m-2.jpg',
-            '/projects/m2m-3.jpg'
+            '/projects/m2m/Artboard 9.png',
+            '/projects/m2m/m2m_p_pd11_trifold.png',
+            '/projects/m2m/m2m_p_pg-6.png',
+            '/projects/m2m/m2m_p_pg10_business.png',
+            '/projects/m2m/m2m_P_pg12_icon.png',
+            '/projects/m2m/m2m_p_pg13_sport wear cole.png',
+            '/projects/m2m/m2m_p_pg14_ Office Logo Mockup.png',
+            '/projects/m2m/m2m_p_pg2.png',
+            '/projects/m2m/m2m_p_pg3.png',
+            '/projects/m2m/m2m_p_pg4.png',
+            '/projects/m2m/m2m_p_pg5.png',
+            '/projects/m2m/m2m_p_pg7.png',
+            '/projects/m2m/m2m_P_pg8.png',
+            '/projects/m2m/m2m_p_pg9.png',
+            '/projects/m2m/m2m_presntation_pg1.png'
         ],
         technologies: ['Illustrator', 'Photoshop', 'Social Media Design'],
-        link: '#'
+        // link: '#'
     },
     {
         id: 3,
         title: 'Postor Design Collection',
         description: 'A curated set of design works showcasing various creative projects.',
         category: 'Graphic Design',
-        thumbnail: '/projects/postor-thumb.jpg',
+        thumbnail: '/projects/temari-share/APP_ICON_pg7.png',
         images: [
-            '/projects/postor-1.jpg',
-            '/projects/postor-2.jpg',
-            '/projects/postor-3.jpg'
+            '/projects/temari-share/__________.png',
+            '/projects/temari-share/APP_ICON_pg7.png',
+            '/projects/temari-share/cover page_behance_test.png',
+            '/projects/m2m/m2m_p_pg4.png',
+            '/projects/m2m/m2m_p_pg5.png',
         ],
         technologies: ['Illustrator', 'Photoshop', 'Print Design'],
-        link: '#'
+        // link: '#'
     }
 ];
 
@@ -87,12 +124,11 @@ export function ProjectsSection() {
                                 onClick={() => setSelectedProject(project)}
                             >
                                 <div className="relative overflow-hidden">
-                                    <div className="aspect-video bg-muted flex items-center justify-center">
-                                        <div className="text-center text-muted-foreground">
-                                            <Eye className="w-12 h-12 mx-auto mb-2" />
-                                            <p className="text-sm">Project Preview</p>
-                                        </div>
-                                    </div>
+                                    <img
+                                        src={project.thumbnail}
+                                        alt={`${project.title} thumbnail`}
+                                        className="w-full aspect-video object-cover"
+                                    />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                                         <Eye className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     </div>
@@ -133,7 +169,7 @@ export function ProjectsSection() {
 
                 {/* Project Modal */}
                 <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                    <DialogContent className="!max-w-6xl max-h-[90vh] overflow-y-auto custom-scrollbar">
                         <DialogHeader>
                             <DialogTitle className="text-2xl font-bold">
                                 {selectedProject?.title}
@@ -157,17 +193,16 @@ export function ProjectsSection() {
                                 <div className="space-y-4">
                                     {selectedProject.images.map((image, index) => (
                                         <div key={index} className="relative w-full">
-                                            <div className="aspect-video bg-muted flex items-center justify-center rounded-lg">
-                                                <div className="text-center text-muted-foreground">
-                                                    <Eye className="w-16 h-16 mx-auto mb-2" />
-                                                    <p>Project Image {index + 1}</p>
-                                                </div>
-                                            </div>
+                                            <img
+                                                src={image}
+                                                alt={`${selectedProject.title} - Image ${index + 1}`}
+                                                className="w-full h-auto rounded-lg shadow-md"
+                                            />
                                         </div>
                                     ))}
                                 </div>
 
-                                <div className="flex justify-center pt-4">
+                                {/* <div className="flex justify-center pt-4">
                                     <a
                                         href={selectedProject.link}
                                         target="_blank"
@@ -177,7 +212,7 @@ export function ProjectsSection() {
                                         <ExternalLink className="w-4 h-4" />
                                         View Project
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                         )}
                     </DialogContent>

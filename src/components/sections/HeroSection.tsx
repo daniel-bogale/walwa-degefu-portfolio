@@ -30,7 +30,7 @@ export function HeroSection() {
                         className="flex justify-center"
                     >
                         <Avatar className="w-32 h-32 sm:w-40 sm:h-40 border-4 border-primary/20">
-                            <AvatarImage src="/profile-photo.jpg" alt="Waluwa Degefu" />
+                            <AvatarImage src="/profile.jpg" alt="Waluwa Degefu" />
                             <AvatarFallback className="text-2xl font-bold bg-primary/10">
                                 WD
                             </AvatarFallback>
