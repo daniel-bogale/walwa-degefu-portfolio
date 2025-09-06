@@ -6,13 +6,13 @@ import { Heart } from 'lucide-react';
 export function Footer() {
     return (
         <footer className="bg-muted/50 border-t border-border">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 py-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="text-center space-y-4"
+                    className="text-center space-y-2"
                 >
                     <div className="flex items-center justify-center gap-2 text-muted-foreground">
                         <span>Made with</span>

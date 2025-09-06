@@ -14,7 +14,7 @@ export function HeroSection() {
     };
 
     return (
-        <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
+        <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-28">
             <div className="max-w-7xl mx-auto text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,6 @@ export function HeroSection() {
                     transition={{ duration: 0.8 }}
                     className="space-y-8"
                 >
-                    {/* Profile Photo */}
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}

@@ -32,25 +32,19 @@ const socialLinks = [
     {
         name: 'LinkedIn',
         icon: Linkedin,
-        href: '#',
+        href: 'https://www.linkedin.com/in/waluwa-degefu-2ab1a437b/',
         color: 'hover:text-blue-600'
     },
     {
         name: 'Behance',
         icon: ExternalLink,
-        href: '#',
+        href: 'https://www.behance.net/umbebadk',
         color: 'hover:text-blue-500'
-    },
-    {
-        name: 'Dribbble',
-        icon: ExternalLink,
-        href: '#',
-        color: 'hover:text-pink-500'
     },
     {
         name: 'Instagram',
         icon: Instagram,
-        href: '#',
+        href: 'https://www.instagram.com/wale_rda/',
         color: 'hover:text-pink-600'
     }
 ];
@@ -116,18 +110,17 @@ export function ContactSection() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Button size="lg" className="flex-1">
+                            <Button size="lg" className="sm:flex-1">
                                 <MessageCircle className="w-4 h-4 mr-2" />
                                 Start a Project
                             </Button>
-                            <Button variant="outline" size="lg" className="flex-1">
+                            <Button variant="outline" size="lg" className="sm:flex-1">
                                 <Download className="w-4 h-4 mr-2" />
                                 Download Resume
                             </Button>
                         </div>
                     </motion.div>
 
-                    {/* Social Links & Additional Info */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -136,11 +129,11 @@ export function ContactSection() {
                         className="space-y-8"
                     >
                         <Card>
-                            <CardContent className="p-8">
-                                <h3 className="text-xl font-bold text-foreground mb-6 text-center">
+                            <CardContent className="p-8 space-y-6">
+                                <h3 className="text-xl font-bold text-foreground  text-center">
                                     Follow My Work
                                 </h3>
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-3 gap-4">
                                     {socialLinks.map((social, index) => (
                                         <motion.a
                                             key={social.name}
@@ -160,20 +153,14 @@ export function ContactSection() {
                                         </motion.a>
                                     ))}
                                 </div>
-                            </CardContent>
-                        </Card>
 
-                        <Card>
-                            <CardContent className="p-8">
-                                <h3 className="text-xl font-bold text-foreground mb-4 text-center">
-                                    Quick Response
-                                </h3>
                                 <p className="text-muted-foreground text-center text-sm leading-relaxed">
                                     I typically respond to inquiries within 24 hours. For urgent projects,
                                     feel free to call me directly.
                                 </p>
                             </CardContent>
                         </Card>
+
                     </motion.div>
                 </div>
             </div>

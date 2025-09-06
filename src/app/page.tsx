@@ -1,4 +1,3 @@
-'use client';
 
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
