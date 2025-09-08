@@ -174,7 +174,7 @@ export function ProjectsSection() {
 
                 {/* Project Modal */}
                 <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-                    <DialogContent className="!max-w-6xl max-h-[90vh] overflow-y-auto custom-scrollbar">
+                    <DialogContent className="sm:!max-w-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
                         <DialogHeader>
                             <DialogTitle className="text-2xl font-bold">
                                 {selectedProject?.title}
