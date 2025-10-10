@@ -70,14 +70,16 @@ export function HeroSection() {
                         >
                             View My Work
                         </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="w-full sm:w-auto"
-                        >
-                            <Download className="w-4 h-4 mr-2" />
-                            Download Resume
-                        </Button>
+                        <a href="/walwa-degefu-cv.pdf" download target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="w-full"
+                            >
+                                <Download className="w-4 h-4 mr-2" />
+                                Download Resume
+                            </Button>
+                        </a>
                     </motion.div>
 
                     {/* Scroll Indicator */}

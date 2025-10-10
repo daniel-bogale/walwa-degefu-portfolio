@@ -110,14 +110,30 @@ export function ContactSection() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Button size="lg" className="sm:flex-1">
-                                <MessageCircle className="w-4 h-4 mr-2" />
-                                Start a Project
-                            </Button>
-                            <Button variant="outline" size="lg" className="sm:flex-1">
-                                <Download className="w-4 h-4 mr-2" />
-                                Download Resume
-                            </Button>
+                            {/* Mailto anchor to open user's mail client with prefilled subject/body */}
+                            <a
+                                href={`mailto:waluwab@gmail.com?subject=${encodeURIComponent('Project Inquiry')}&body=${encodeURIComponent(`Hi Waluwa,I would like to discuss a project with you. Here are some initial details:- Project type: - Project type: - Timeline: - Budget:`)}`}
+                                className="sm:flex-1"
+                            >
+                                <Button size="lg" className="w-full">
+                                    <MessageCircle className="w-4 h-4 mr-2" />
+                                    Start a Project
+                                </Button>
+                            </a>
+
+                            {/* Use an anchor so the resume file in public/ is downloaded when clicked */}
+                            <a
+                                href="/walwa-degefu-cv.pdf"
+                                download
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="sm:flex-1"
+                            >
+                                <Button variant="outline" size="lg" className="w-full">
+                                    <Download className="w-4 h-4 mr-2" />
+                                    Download Resume
+                                </Button>
+                            </a>
                         </div>
                     </motion.div>
 
