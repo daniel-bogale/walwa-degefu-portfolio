@@ -51,21 +51,24 @@ const getLevelColor = (level: string) => {
     switch (level) {
         case 'Expert':
         case 'Native':
-            return 'bg-green-500';
+            return 'bg-gradient-to-r from-green-500 to-emerald-400';
         case 'Advanced':
         case 'Fluent':
-            return 'bg-blue-500';
+            return 'bg-gradient-to-r from-blue-500 to-cyan-400';
         case 'Intermediate':
-            return 'bg-yellow-500';
+            return 'bg-gradient-to-r from-yellow-500 to-orange-400';
         default:
-            return 'bg-gray-500';
+            return 'bg-gradient-to-r from-gray-500 to-gray-400';
     }
 };
 
 export function SkillsSection() {
     return (
-        <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-            <div className="max-w-7xl mx-auto">
+        <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10" />
+
+            <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -90,11 +93,11 @@ export function SkillsSection() {
                             transition={{ duration: 0.8, delay: index * 0.2 }}
                             viewport={{ once: true }}
                         >
-                            <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                                <CardHeader className="text-center">
+                            <Card className="h-full bg-background/50 backdrop-blur-sm border-border/50 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+                                <CardHeader className="text-center pb-2">
                                     <div className="flex justify-center mb-4">
-                                        <div className="p-3 rounded-full bg-primary/10">
-                                            <category.icon className="w-8 h-8 text-primary" />
+                                        <div className="p-4 rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
+                                            <category.icon className="w-8 h-8" />
                                         </div>
                                     </div>
                                     <CardTitle className="text-xl font-bold">
@@ -102,7 +105,7 @@ export function SkillsSection() {
                                     </CardTitle>
                                 </CardHeader>
 
-                                <CardContent className="space-y-4">
+                                <CardContent className="space-y-6 pt-4">
                                     {category.skills.map((skill, skillIndex) => (
                                         <motion.div
                                             key={skill.name}
@@ -116,15 +119,12 @@ export function SkillsSection() {
                                                 <span className="text-sm font-medium text-foreground">
                                                     {skill.name}
                                                 </span>
-                                                <Badge
-                                                    variant="outline"
-                                                    className="text-xs"
-                                                >
+                                                <span className="text-xs text-muted-foreground">
                                                     {skill.level}
-                                                </Badge>
+                                                </span>
                                             </div>
 
-                                            <div className="w-full bg-muted rounded-full h-2">
+                                            <div className="w-full bg-secondary/50 rounded-full h-2 overflow-hidden">
                                                 <motion.div
                                                     initial={{ width: 0 }}
                                                     whileInView={{
@@ -134,7 +134,7 @@ export function SkillsSection() {
                                                     }}
                                                     transition={{ duration: 1, delay: skillIndex * 0.1 }}
                                                     viewport={{ once: true }}
-                                                    className={`h-2 rounded-full ${getLevelColor(skill.level)}`}
+                                                    className={`h-full rounded-full ${getLevelColor(skill.level)} shadow-sm`}
                                                 />
                                             </div>
                                         </motion.div>
@@ -153,7 +153,7 @@ export function SkillsSection() {
                     viewport={{ once: true }}
                     className="mt-16"
                 >
-                    <Card>
+                    <Card className="bg-background/50 backdrop-blur-sm border-border/50">
                         <CardHeader>
                             <CardTitle className="text-center text-xl font-bold">
                                 Additional Expertise
@@ -175,7 +175,7 @@ export function SkillsSection() {
                                     'Color Theory',
                                     'Typography'
                                 ].map((skill) => (
-                                    <Badge key={skill} variant="secondary" className="text-sm">
+                                    <Badge key={skill} variant="secondary" className="text-sm px-4 py-1.5 bg-secondary/50 hover:bg-secondary/80 transition-colors">
                                         {skill}
                                     </Badge>
                                 ))}

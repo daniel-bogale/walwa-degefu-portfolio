@@ -6,7 +6,7 @@ import { Heart } from 'lucide-react';
 export function Footer() {
     return (
         <footer className="bg-muted/50 border-t border-border">
-            <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 py-6">
+            <div className="max-w-6xl mx-auto px-4 sm:px-5 lg:px-8 py-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

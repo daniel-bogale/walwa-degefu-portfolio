@@ -51,8 +51,11 @@ const socialLinks = [
 
 export function ContactSection() {
     return (
-        <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
+        <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -z-10" />
+
+            <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -96,9 +99,9 @@ export function ContactSection() {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     viewport={{ once: true }}
-                                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors group"
+                                    className="flex items-center gap-4 p-4 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 hover:bg-background/80 transition-all group"
                                 >
-                                    <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                    <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                                         <contact.icon className="w-5 h-5 text-primary" />
                                     </div>
                                     <div>
@@ -115,7 +118,7 @@ export function ContactSection() {
                                 href={`mailto:waluwab@gmail.com?subject=${encodeURIComponent('Project Inquiry')}&body=${encodeURIComponent(`Hi Waluwa,I would like to discuss a project with you. Here are some initial details:- Project type: - Project type: - Timeline: - Budget:`)}`}
                                 className="sm:flex-1"
                             >
-                                <Button size="lg" className="w-full">
+                                <Button size="lg" className="w-full h-12 rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all">
                                     <MessageCircle className="w-4 h-4 mr-2" />
                                     Start a Project
                                 </Button>
@@ -129,7 +132,7 @@ export function ContactSection() {
                                 rel="noopener noreferrer"
                                 className="sm:flex-1"
                             >
-                                <Button variant="outline" size="lg" className="w-full">
+                                <Button variant="outline" size="lg" className="w-full h-12 rounded-full border-2 hover:bg-secondary/50">
                                     <Download className="w-4 h-4 mr-2" />
                                     Download Resume
                                 </Button>
@@ -144,7 +147,7 @@ export function ContactSection() {
                         viewport={{ once: true }}
                         className="space-y-8"
                     >
-                        <Card>
+                        <Card className="bg-background/50 backdrop-blur-sm border-border/50 shadow-xl">
                             <CardContent className="p-8 space-y-6">
                                 <h3 className="text-xl font-bold text-foreground  text-center">
                                     Follow My Work
@@ -162,7 +165,7 @@ export function ContactSection() {
                                             viewport={{ once: true }}
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className={`flex flex-col items-center gap-2 p-4 rounded-lg border border-border hover:border-primary/50 transition-all duration-200 ${social.color}`}
+                                            className={`flex flex-col items-center gap-2 p-4 rounded-xl border border-border/50 bg-background/50 hover:border-primary/50 hover:bg-background transition-all duration-200 ${social.color}`}
                                         >
                                             <social.icon className="w-6 h-6" />
                                             <span className="text-sm font-medium">{social.name}</span>

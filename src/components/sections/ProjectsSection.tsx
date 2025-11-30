@@ -5,9 +5,46 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Eye } from 'lucide-react';
+import { Eye } from 'lucide-react';
+import Image from 'next/image';
 
 const projects = [
+    {
+        id: 3,
+        title: 'Postor Design Collection',
+        description: 'A curated set of design works showcasing various creative projects.',
+        category: 'Graphic Design',
+        thumbnail: '/projects/postors/PICK DELIVERY_2.png',
+        images: [
+            '/projects/postors/2.png',
+            '/projects/postors/bini_2_show case.png',
+            '/projects/postors/G_f_H_3_POST.png',
+            '/projects/postors/PICK DELIVERY_2.png',
+            '/projects/postors/PICK DELIVERY_app.png',
+            '/projects/postors/social media_screen.png',
+            '/projects/postors/temer_1.png',
+            '/projects/postors/TS_post 1 whitebg_pg8 (2).png',
+            '/projects/postors/winza_1.png',
+            '/projects/postors/winza-2.png'
+        ],
+        technologies: ['Illustrator', 'Photoshop', 'Print Design'],
+        // link: '#'
+    }
+    ,
+    {
+        id: 4,
+        title: 'Thumbnail Designs',
+        description: 'A collection of thumbnail designs and small-format visuals created for various projects and social platforms.',
+        category: 'Graphic Design',
+        thumbnail:
+            '/projects/thumbnails/facebook add.png',
+        images: [
+            '/projects/thumbnails/facebook add.png',
+            '/projects/thumbnails/from 3k upto 500k.png',
+        ],
+        technologies: ['Photoshop', 'Illustrator'],
+        // link: '#'
+    },
     {
         id: 1,
         title: 'Temari Share',
@@ -71,35 +108,19 @@ const projects = [
         technologies: ['Illustrator', 'Photoshop', 'Social Media Design'],
         // link: '#'
     },
-    {
-        id: 3,
-        title: 'Postor Design Collection',
-        description: 'A curated set of design works showcasing various creative projects.',
-        category: 'Graphic Design',
-        thumbnail: '/projects/postors/PICK DELIVERY_2.png',
-        images: [
-            '/projects/postors/2.png',
-            '/projects/postors/bini_2_show case.png',
-            '/projects/postors/G_f_H_3_POST.png',
-            '/projects/postors/PICK DELIVERY_2.png',
-            '/projects/postors/PICK DELIVERY_app.png',
-            '/projects/postors/social media_screen.png',
-            '/projects/postors/temer_1.png',
-            '/projects/postors/TS_post 1 whitebg_pg8 (2).png',
-            '/projects/postors/winza_1.png',
-            '/projects/postors/winza-2.png'
-        ],
-        technologies: ['Illustrator', 'Photoshop', 'Print Design'],
-        // link: '#'
-    }
+
 ];
 
 export function ProjectsSection() {
     const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
     return (
-        <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
+        <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-3xl -z-10" />
+
+            <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -121,27 +142,31 @@ export function ProjectsSection() {
                             key={project.id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
+                            whileHover={{ y: -10 }}
                         >
                             <Card
-                                className="group cursor-pointer hover:shadow-lg transition-all duration-300 overflow-hidden"
+                                className="group cursor-pointer border-0 bg-background/50 backdrop-blur-sm shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 overflow-hidden h-full flex flex-col p-0"
                                 onClick={() => setSelectedProject(project)}
                             >
-                                <div className="relative overflow-hidden">
-                                    <img
+                                <div className="relative overflow-hidden aspect-video">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end p-6">
+                                        <span className="text-white font-medium flex items-center gap-2">
+                                            View Details <Eye className="w-4 h-4" />
+                                        </span>
+                                    </div>
+                                    <Image
                                         src={project.thumbnail}
                                         alt={`${project.title} thumbnail`}
-                                        className="w-full aspect-video object-cover"
+                                        fill
+                                        className="object-cover transform group-hover:scale-110 transition-transform duration-500"
                                     />
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                                        <Eye className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                    </div>
                                 </div>
 
-                                <CardContent className="p-6">
-                                    <div className="flex items-start justify-between mb-2">
-                                        <Badge variant="secondary" className="text-xs">
+                                <CardContent className="p-6 flex-1 flex flex-col">
+                                    <div className="flex items-start justify-between mb-3">
+                                        <Badge variant="secondary" className="bg-secondary/50 hover:bg-secondary/70 transition-colors">
                                             {project.category}
                                         </Badge>
                                     </div>
@@ -150,21 +175,16 @@ export function ProjectsSection() {
                                         {project.title}
                                     </h3>
 
-                                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
                                         {project.description}
                                     </p>
 
-                                    <div className="flex flex-wrap gap-1 mb-4">
-                                        {project.technologies.map((tech) => (
-                                            <Badge key={tech} variant="outline" className="text-xs">
+                                    <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50">
+                                        {project.technologies.slice(0, 3).map((tech) => (
+                                            <span key={tech} className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-md">
                                                 {tech}
-                                            </Badge>
+                                            </span>
                                         ))}
-                                    </div>
-
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-sm text-muted-foreground">Click to view details</span>
-                                        <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                                     </div>
                                 </CardContent>
                             </Card>
@@ -173,51 +193,54 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Project Modal */}
-                <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-                    <DialogContent className="sm:!max-w-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
-                        <DialogHeader>
-                            <DialogTitle className="text-2xl font-bold">
+                <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)} >
+                    <DialogContent className="sm:max-w-4xl max-h-[90vh] overflow-y-auto custom-scrollbar bg-background/95 backdrop-blur-xl border-border/50 p-0 gap-0">
+                        <DialogHeader className="p-6 border-b border-border/50 sticky top-0 bg-background/95 backdrop-blur-xl z-10">
+                            <DialogTitle className="text-2xl font-bold flex items-center gap-3">
                                 {selectedProject?.title}
+                                {selectedProject && (
+                                    <Badge variant="secondary">
+                                        {selectedProject.category}
+                                    </Badge>
+                                )}
                             </DialogTitle>
                         </DialogHeader>
 
                         {selectedProject && (
-                            <div className="space-y-6">
-                                <div className="flex flex-wrap gap-2">
-                                    {selectedProject.technologies.map((tech) => (
-                                        <Badge key={tech} variant="outline">
-                                            {tech}
-                                        </Badge>
-                                    ))}
+                            <div className="p-6 space-y-8">
+                                <div className="space-y-4">
+                                    <p className="text-lg text-muted-foreground leading-relaxed">
+                                        {selectedProject.description}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {selectedProject.technologies.map((tech) => (
+                                            <Badge key={tech} variant="outline" className="px-3 py-1">
+                                                {tech}
+                                            </Badge>
+                                        ))}
+                                    </div>
                                 </div>
 
-                                <p className="text-muted-foreground">
-                                    {selectedProject.description}
-                                </p>
-
-                                <div className="space-y-4">
+                                <div className="grid grid-cols-1 gap-6">
                                     {selectedProject.images.map((image, index) => (
-                                        <div key={index} className="relative w-full">
-                                            <img
+                                        <motion.div
+                                            key={index}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                                            viewport={{ once: true }}
+                                            className="relative w-full rounded-xl overflow-hidden shadow-md group aspect-auto"
+                                        >
+                                            <Image
                                                 src={image}
                                                 alt={`${selectedProject.title} - Image ${index + 1}`}
-                                                className="w-full h-auto rounded-lg shadow-md"
+                                                width={1200}
+                                                height={800}
+                                                className="w-full h-auto"
                                             />
-                                        </div>
+                                        </motion.div>
                                     ))}
                                 </div>
-
-                                {/* <div className="flex justify-center pt-4">
-                                    <a
-                                        href={selectedProject.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                                    >
-                                        <ExternalLink className="w-4 h-4" />
-                                        View Project
-                                    </a>
-                                </div> */}
                             </div>
                         )}
                     </DialogContent>
